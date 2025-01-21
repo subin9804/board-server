@@ -10,7 +10,7 @@ import org.springframework.core.io.support.PathMatchingResourcePatternResolver;
 import javax.sql.DataSource;
 
 @Configuration
-@MapperScan(basePackages = "com.fastcam.boardserver") // 인터페이스의 경로와 동일해야 한다.
+@MapperScan(basePackages = "com.fastcam.boardserver.mapper") // 인터페이스의 경로와 동일해야 한다.
 public class MysqlConfig {
 
     // Spring이 관리하는 데이터 소스 빈을 주입받아 MyBatis에서 사용할 데이터베이스 연결을 제공

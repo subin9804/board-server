@@ -26,7 +26,6 @@ public class UserServiceImpl implements UserService {
     // 회원가입
     @Override
     public void register(UserDTO userProfile) {
-        System.out.println("userDTO" + userProfile);
         boolean dupleIdResult = isDuplicatedId(userProfile.getUserId());
         if (dupleIdResult) {
            throw new DuplicateIdException("중복된 아이디입니다.");
@@ -55,7 +54,6 @@ public class UserServiceImpl implements UserService {
 
     @Override
     public boolean isDuplicatedId(String id) {
-        System.out.println("여기까지 오나   " + id);
         return userProfileMapper.idCheck(id) == 1;
     }
 

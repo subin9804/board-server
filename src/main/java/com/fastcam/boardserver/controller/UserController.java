@@ -1,6 +1,7 @@
 package com.fastcam.boardserver.controller;
 
 
+import com.fastcam.boardserver.aop.LoginCheck;
 import com.fastcam.boardserver.dto.UserDTO;
 import com.fastcam.boardserver.dto.request.UserDeleteId;
 import com.fastcam.boardserver.dto.request.UserLoginRequest;
@@ -82,7 +83,8 @@ public class UserController {
 
     // 부분 변경
     @PatchMapping("password")
-    public ResponseEntity<LoginResponse> updateUserPassword(@RequestBody UserUpdatePasswordRequest userUpdatePasswordRequest,
+    @LoginCheck(type = LoginCheck.UserType.USER)
+    public ResponseEntity<LoginResponse> updateUserPassword(String accountId, @RequestBody UserUpdatePasswordRequest userUpdatePasswordRequest,
                                                             HttpSession session) {
         ResponseEntity<LoginResponse> responseEntity = null;
         String id = SessionUtil.getLoginMemberId(session);
