@@ -42,8 +42,8 @@ public class LoginCheckAspect {
 
         Object[] modefiedArgs = proceedingJoinPoint.getArgs();
 
-        if(proceedingJoinPoint != null) modefiedArgs[idIndex] = id;
+        if(proceedingJoinPoint.getArgs() != null) modefiedArgs[idIndex] = id;
 
-        return proceedingJoinPoint.proceed();
-    }
+        return proceedingJoinPoint.proceed(modefiedArgs);
+     }
 }
