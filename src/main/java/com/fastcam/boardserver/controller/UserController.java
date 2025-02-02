@@ -65,6 +65,11 @@ public class UserController {
         return HttpStatus.OK;
     }
 
+    @PutMapping("logout")
+    public void logout(String accountId, HttpSession session) {
+        SessionUtil.clear(session);
+    }
+
     /* 로그인 후 정보조회 메서드 */
     @GetMapping("my-info")
     public UserInfoResponse memberInfo(HttpSession session) {
